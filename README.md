@@ -31,18 +31,18 @@
 
 ## Step 3. Build a server, and a testing environment
 
-* in your `package.json` file, under `scripts` add the test command:
+* in your `package.json` file, under `scripts` add the test command, and if you like, the start command:
 
 ```
 "scripts": {
+  "start": "nodemon server.js",
   "test": "mocha *.test.js"
 },
 ```
 
-* This command will allow you to run your tests.
-
+* This command will allow you to run your tests (and start your server with nodemon).
 * Next, head over to your `server.js` file that we created and build out the boilerplate code for your node server.
-* Finally, we're going to set up our testing environment, head over to your `routes.test.js` file and require in `mongoose`, `chai`, and `chai-http`.
+* Finally, we're going to set up our testing environment. Head over to your `routes.test.js` file and require `mongoose`, `chai`, and `chai-http`.
 * You'll also pass `chaiHTTP` into your `chai` as `middlware`
 
 ```
