@@ -8,7 +8,8 @@
 
 ## Step 1. Project Initialization
 
-* Initialize your project with the `yarn init` command (This will create a `package.json` file). You can then run `yarn add` commands to in order to save your `node_modules`.
+* Initialize your project with the `yarn init` command (This will create a `package.json` file).
+* You can then run `yarn add` commands to in order to save your `node_modules`.
 * The packages that we need for this project are:
   * express
   * body-parser
@@ -21,7 +22,6 @@
 ## Step 2. Project Initialization Round II
 
 * Create the following files in your project.
-
   * server.js
   * app.js
   * documentation.md
@@ -31,28 +31,28 @@
 
 ## Step 3. Build a server, and a testing environment
 
-* in your `package.json` file, under `scripts` add the test command, and if you like, the start command:
+* In your `package.json` file, under `scripts` add the test command:
 
-```
+```json
 "scripts": {
-  "start": "nodemon server.js",
   "test": "mocha *.test.js"
 },
 ```
 
-* This command will allow you to run your tests (and start your server with nodemon).
-* Next, head over to your `server.js` file that we created and build out the boilerplate code for your node server.
-* Finally, we're going to set up our testing environment. Head over to your `routes.test.js` file and require `mongoose`, `chai`, and `chai-http`.
-* You'll also pass `chaiHTTP` into your `chai` as `middlware`
+* This command will allow you to run your tests.
+* Next, head over to the `server.js` file that you created, and build out the boilerplate code for your Node server.
+* Now we're going to set up our testing environment. Head over to your `routes.test.js` file, and require `mongoose`, `chai`, and `chai-http`.
+* Also, pass `chaiHTTP` into your `chai` as `middlware`.
 
-```
+```js
 chai.use(chaiHTTP);
 ```
 
-* and of course, you'll want to pull in your server as it will be used to mock calls to your api. And call `mongoose.connect` to link up with a testing `mongo` instance.
+* And of course, you'll want to pull in your server as it will be used to mock calls to your api. Finally, call `mongoose.connect` to link up with a testing `mongo` instance.
 
-```
+```js
 mongoose.connect('mongodb://localhost/test');
 ```
 
-* This should be all you need to get started on this project. This mini-project will actually be just the starter pack for your Server Testing Sprint.
+* This should be all you need to get started on this project!
+* This mini-project will actually be just the starter pack for your Server Testing Sprint.
