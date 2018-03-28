@@ -4,7 +4,8 @@
   "description": "## A follow along practice for teaching Test Driven Development (TDD)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha *.test.js",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
