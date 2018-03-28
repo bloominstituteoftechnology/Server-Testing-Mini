@@ -16,7 +16,7 @@
   * mongoose
   * mocha
   * chai-http
-  * morgan --> this is new we'll chat about it.
+  * morgan --> this is new, we'll chat about it.
   * sinon
 
 ## Step 2. Project Initialization Round II
