@@ -39,7 +39,7 @@
   },
   ```
 
-* This command will allow you to run your tests. If you would like, you can add `"start": "nodemon app.js"` to the `scripts`. Keep in mind that whichever file you point the "start" script to is where you'll invoke the Express _listen()_ method.
+* This command will allow you to run your tests. If you would like, you can add `"start": "nodemon app.js"` to the `scripts`. Keep in mind that whichever file you point the "start" script to is where you'll invoke the Express _listen()_ method (your "entry point").
 * Next, head over to the `server.js` file that you created, and build out the boilerplate code for your Node server.
 * Now we're going to set up our testing environment. Head over to your `routes.test.js` file, and require `mongoose`, `chai`, and `chai-http`.
 * Also, pass `chaiHTTP` into your `chai` as `middlware`.
