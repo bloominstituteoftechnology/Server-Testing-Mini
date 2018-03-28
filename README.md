@@ -8,8 +8,7 @@
 
 ## Step 1. Project Initialization
 
-* Create an empty directory and name it whatever you'd like.
-* Initialize your project with an `npm init` command (This will create a `package.json` file that you can run `npm` commands to in order to save your `node_modules`).
+* Initialize your project with an `yarn init` command (This will create a `package.json` file). You can then run `yarn add` commands to in order to save your `node_modules`.
 * The packages that we need for this project are:
   * express
   * body-parser
