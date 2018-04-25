@@ -6,8 +6,6 @@
 
 ## API Endpoints
 
-<hr>
-
 > Below are all of the available endpoints for this API:
 
 <br>
@@ -23,8 +21,6 @@
 
 ## Band Schema
 
-<hr>
-
 <br>
 
 ```
@@ -38,7 +34,7 @@ const BandSchema = new Schema({
     type: String,
     required: true
   },
-  tourstatus: {
+  tourStatus: {
     type: String,
     required: true
   }
@@ -47,23 +43,17 @@ const BandSchema = new Schema({
 
 ## Referencing Issues and Pull Requests
 
-<hr>
-
 * Coming Soon
 
 <br>
 
 ## License
 
-<hr>
-
 * Look at our LICENSE.md for more information. We used the standard MIT license for this project.
 
 <br>
 
 ## Contributors
-
-<hr>
 
 * [Megan Williamson](https://www.github.com/gooseandmegander)
 * [Johnathan Huggett](https://www.github.com/JohnathanHuggett)
