@@ -1,0 +1,31 @@
+{
+  "name": "Server-Testing-Mini",
+  "version": "1.0.0",
+  "description": "## A follow along practice for teaching Test Driven Development (TDD)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emukupa/Server-Testing-Mini.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emukupa/Server-Testing-Mini/issues"
+  },
+  "homepage": "https://github.com/emukupa/Server-Testing-Mini#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "express": "^4.16.3",
+    "helmet": "^3.12.0",
+    "mocha": "^5.1.1",
+    "mongoose": "^5.0.16",
+    "morgan": "^1.9.0",
+    "sino": "^0.0.3"
+  }
+}
