@@ -2168,7 +2168,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 2
+  Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
   Arguments: /d /s /c mocha tests/*.test.js
   Directory: C:\Users\megan_000\LambdaSchool\Server-Testing-Mini

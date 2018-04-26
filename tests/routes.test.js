@@ -1,53 +1,92 @@
 const mongoose = require('mongoose');
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
-
 mongoose.connect('mongodb://localhost/test', {}, err => {
   if (err) console.log(err);
-  console.log('\n+++ connected to mongo test db +++\n');
+  console.log(`\n=== Connected to mongo test ===\n`);
 });
-
 const expect = chai.expect;
+const assert = chai.assert;
 const server = require('../server');
-const Band = require('../models/band');
-
 chai.use(chaiHTTP);
-
-describe('/api/bands', () => {
-  let id;
+//schema
+const Band = require('../models/band');
+describe('Bands', () => {
   beforeEach(done => {
-    const newBand = new Band({
-      name: 'Radiohead',
-      genre: 'Alt-rock',
+    const bandOne = new Band({
+      name: 'Bill Withers',
+      genre: 'Funk',
       tourStatus: false,
     });
-    newBand.save((err, savedBand) => {
+    bandOne.save((err, savedBand) => {
       if (err) {
-        console.log(err);
-        done();
+        done(err);
       }
-      id = savedBand._id;
+    });
+    const bandTwo = new Band({
+      name: 'Fleet Foxes',
+      genre: 'Alt',
+      tourStatus: true,
+    });
+    bandTwo.save((err, savedBand) => {
+      if (err) {
+        return done(err);
+      }
       done();
     });
   });
   afterEach(done => {
     Band.remove({}, err => {
-      if (err) console.log(err);
-      return done();
+      if (err) {
+        return done(err);
+      }
+      done();
     });
   });
   describe(`[GET] /api/bands`, () => {
-    it('should get a list of all the bands in db', done => {
+    it('should get a list of all bands in the database', done => {
+      chai
+        .request(server)
+        .get('/api/bands')
+        .end((err, response) => {
+          // console.log("+++", response.body[0]._id);
+          if (err) {
+            return done(err);
+          }
+          expect(response.status).to.equal(200);
+          done();
+        });
+    });
+  });
+  describe(`[GET] /api/bands`, () => {
+    it('should return an array of bands', done => {
       chai
         .request(server)
         .get('/api/bands')
         .end((err, response) => {
           if (err) {
-            console.log(err);
-            return done();
+            return done(err);
           }
-          expect(response.status).to.equal(200);
-          return done();
+          assert.isArray(response.body);
+          done();
+        });
+    });
+  });
+  describe(`[GET] /api/bands`, () => {
+    it('should return properties _id, name, genre, tourStatus', done => {
+      chai
+        .request(server)
+        .get('/api/bands')
+        .end((err, response) => {
+          // console.log("+++", response.body[0]._id);
+          if (err) {
+            return done(err);
+          }
+          assert.exists(response.body[0].name, 'name');
+          assert.exists(response.body[0].genre, 'genre');
+          assert.exists(response.body[0].tourStatus, 'tourStatus');
+          assert.exists(response.body[0]._id, '_id');
+          done();
         });
     });
   });
