@@ -1,0 +1,24 @@
+{
+  "name": "Server-Testing-Mini",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gooseandmegander/Server-Testing-Mini.git",
+  "author": "Megan Williamson <meganawilliamson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "express": "^4.16.3",
+    "mocha": "^5.1.1",
+    "mongoose": "^5.0.16",
+    "morgan": "^1.9.0",
+    "sinon": "^4.5.0"
+  },
+  "scripts": {
+    "test": "mocha tests/*.test.js",
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
