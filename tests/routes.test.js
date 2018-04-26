@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
-// mongoose.connect('mongodb://localhost/test', {}, err => {
-//   if (err) console.log(err);
-//   console.log(`\n=== Connected to mongo test ===\n`);
-// });
+mongoose.connect('mongodb://localhost/bands', {}, err => {
+  if (err) console.log(err);
+  console.log(`\n=== Connected to mongo test ===\n`);
+});
 const expect = chai.expect;
 const assert = chai.assert;
 const server = require('../server');
@@ -13,6 +13,7 @@ chai.use(chaiHTTP);
 const Band = require('../models/band');
 
 describe('Bands', () => {
+  /*
   before(function(done) {
     mongoose.connect('mongodb://localhost/test', {}, err => {
       if (err) return console.log(err);
@@ -26,7 +27,8 @@ describe('Bands', () => {
     mongoose.connection.close();
     done();
   });
-
+*/
+  /*
   beforeEach(done => {
     console.log('in beforeEach');
     const bandOne = new Band({
@@ -36,8 +38,10 @@ describe('Bands', () => {
     });
     bandOne.save((err, savedBand) => {
       if (err) {
-        done(err);
+        console.log('before', err.message);
+        return done();
       }
+      done();
     });
     const bandTwo = new Band({
       name: 'Fleet Foxes',
@@ -45,8 +49,10 @@ describe('Bands', () => {
       tourStatus: true,
     });
     bandTwo.save((err, savedBand) => {
+
       if (err) {
-        return done(err);
+        console.log('before', err.message);
+        return done();
       }
       done();
     });
@@ -56,28 +62,30 @@ describe('Bands', () => {
     console.log('in afterEach');
     Band.remove({}, err => {
       if (err) {
-        return done(err);
+        console.log('after', err.message);
+        return done();
       }
       done();
     });
   });
-
+*/
   describe(`[GET] /api/bands`, () => {
     console.log('in get describe with 200');
     it('should get a list of all bands in the database', done => {
       chai
-        .request('http://localhost:5000/api/bands')
+        .request(server)
         .get('/api/bands')
         .end((err, response) => {
           if (err) {
-            return done(err);
+            console.log('get', err.message);
+            return done();
           }
           expect(response.status).to.equal(200);
           done();
         });
     });
   });
-
+  /*
   describe(`[GET] /api/bands`, () => {
     it('should return an array of bands', done => {
       chai
@@ -111,4 +119,5 @@ describe('Bands', () => {
         });
     });
   });
+  */
 });
