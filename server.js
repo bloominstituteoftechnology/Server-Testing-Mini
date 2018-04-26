@@ -13,16 +13,16 @@ server.use(bodyParser.json());
 server.use(morgan(`dev`));
 
 //security
-server.use(helmet());
+//server.use(helmet());
 
 //cross origin request sharing permissions
-const corsOptions = {
-  origin: `*`,
-  methods: `GET, HEAD, PUT, PATCH, POST, DELETE`,
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
-server.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: `*`,
+//   methods: `GET, HEAD, PUT, PATCH, POST, DELETE`,
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+// };
+// server.use(cors(corsOptions));
 
 // routes
 server.get('/api/bands', (req, res) => {

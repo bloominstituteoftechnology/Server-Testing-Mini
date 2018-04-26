@@ -18,7 +18,46 @@ chai.use(chaiHTTP);
 
 describe('Bands', () => {
   let bandId;
-  beforeEach(done => {});
-  afterEach(done => {});
-  describe(`[GET] /api/bands`, () => {});
+  beforeEach(done => {
+    const newBand = new Band({
+      name: 'Radio Head',
+      genre: 'All rock',
+    });
+
+    newBand
+      .save()
+      .then(savedBand => {
+        bandId = savedBand._id;
+      })
+      .catch(err => {
+        console.log(err);
+        return done();
+      });
+  });
+  afterEach(done => {
+    Band.remove()
+      .then(removed => {
+        return done();
+      })
+      .catch(err => {
+        console.log(err);
+        return done();
+      });
+  });
+  describe(`[GET] /api/bands`, () => {
+    it('Should get a list of all the bands in db', done => {
+      chai
+        .request(server)
+        .get('/api/bands')
+        .end((err, response) => {
+          if (err) {
+            console.log(err);
+            return done();
+          }
+          expect(response.status).to.equal(200);
+          console.log(response);
+          return done();
+        });
+    });
+  });
 });
