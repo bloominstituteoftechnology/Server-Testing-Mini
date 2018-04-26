@@ -40,7 +40,7 @@ describe('Schools', () => {
   })
 
   afterEach(done => {
-    School.remove({ name: 'Lambda' }).then(res => {}).catch(err => {
+    School.remove({}).then(res => {}).catch(err => {
       console.log(err)
     })
     done()
