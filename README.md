@@ -46,7 +46,7 @@
 ## Step 4. Build A Testing Environment
 
 * Now we're going to set up our testing environment. Head over to your `routes.test.js` file, and require `mongoose`, `chai`, and `chai-http`.
-* Also, pass `chaiHTTP` into your `chai` as `middlware`.
+* Also, pass `chaiHTTP` into your `chai` as `middleware`.
 
   ```js
   chai.use(chaiHTTP);
