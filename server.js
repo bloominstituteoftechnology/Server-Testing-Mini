@@ -16,7 +16,7 @@ server.get('/api/schools', (req, res) => {
     if (err) {
       res.status(500).json({ error: 'Cannot find your school' })
     }
-    res.status(201).json(schools)
+    res.status(200).json(schools)
   })
 })
 
