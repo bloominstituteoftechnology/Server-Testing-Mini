@@ -2,7 +2,7 @@ const server = require('./server')
 const mongoose = require('mongoose')
 
 mongoose
-  .connect('mongodb://localhost/bands')
+  .connect('mongodb://localhost/schools')
   .then(() => {
     console.log(`\n=== Mongo Online ===\n`)
   })

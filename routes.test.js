@@ -46,15 +46,6 @@ describe('Schools', () => {
     done()
   })
 
-  // end((err, res) => {
-  //   if (err) {
-  //     console.log(err)
-  //     done()
-  //   }
-  //   expect(res.status).to.equal(201)
-  //   done()
-  // })
-
   describe(`[GET] /api/schools`, () => {
     it('should get status 201', done => {
       chai
