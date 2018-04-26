@@ -1,10 +1,10 @@
 {
-  "name": "Server-Testing-Mini",
+  "name": "server-testing-mini",
   "version": "1.0.0",
   "description": "## A follow along practice for teaching Test Driven Development (TDD)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha *.test.js",
+    "test": "mocha --watch *.test.js",
     "start": "nodemon app.js"
   },
   "repository": {
