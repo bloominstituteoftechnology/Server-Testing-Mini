@@ -20,4 +20,36 @@ server.get('/api/schools', (req, res) => {
   })
 })
 
+server.post('/api/schools', (req, res) => {
+  const { name, rating } = req.body
+  const newSchool = new School({ name, rating })
+  newSchool
+    .save()
+    .then(savedSchool => {
+      School.find()
+        .then(schools => {
+          res.status(200).json(schools)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
+server.put('/api/schools/:id', (req, res) => {
+  const { _id } = req.params
+  const { name, rating } = req.body
+
+  School.update(_id, { name, rating })
+    .then(updateData => {
+      // console.log(updateData)
+      res.status(200).json(updateData)
+    })
+    .catch(error => {
+      res.status(500).json(error)
+    })
+})
 module.exports = server
