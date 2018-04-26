@@ -16,4 +16,6 @@ server.get('/api/bands', (req, res) => {
   });
 });
 
+server.post('/api/bands');
+
 module.exports = server;

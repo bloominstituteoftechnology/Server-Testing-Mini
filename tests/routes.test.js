@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
-mongoose.connect('mongodb://localhost/bands', {}, err => {
-  if (err) console.log(err);
-  console.log(`\n=== Connected to mongo test ===\n`);
-});
+// mongoose.connect('mongodb://localhost/bands', {}, err => {
+//   if (err) console.log(err);
+//   console.log(`\n=== Connected to mongo test ===\n`);
+// });
 const expect = chai.expect;
 const assert = chai.assert;
 const server = require('../server');
@@ -13,7 +13,6 @@ chai.use(chaiHTTP);
 const Band = require('../models/band');
 
 describe('Bands', () => {
-  /*
   before(function(done) {
     mongoose.connect('mongodb://localhost/test', {}, err => {
       if (err) return console.log(err);
@@ -23,14 +22,12 @@ describe('Bands', () => {
   });
 
   after(done => {
-    console.log('in after');
     mongoose.connection.close();
     done();
   });
-*/
-  /*
-  beforeEach(done => {
-    console.log('in beforeEach');
+
+  beforeEach(function(done) {
+    // removed arrow fn to use this on line 54
     const bandOne = new Band({
       name: 'Bill Withers',
       genre: 'Funk',
@@ -38,10 +35,9 @@ describe('Bands', () => {
     });
     bandOne.save((err, savedBand) => {
       if (err) {
-        console.log('before', err.message);
         return done();
       }
-      done();
+      // done();
     });
     const bandTwo = new Band({
       name: 'Fleet Foxes',
@@ -49,35 +45,31 @@ describe('Bands', () => {
       tourStatus: true,
     });
     bandTwo.save((err, savedBand) => {
-
       if (err) {
-        console.log('before', err.message);
         return done();
       }
-      done();
+      // done();
     });
+    this.timeout(3000);
+    setTimeout(done, 2500);
   });
 
   afterEach(done => {
-    console.log('in afterEach');
     Band.remove({}, err => {
       if (err) {
-        console.log('after', err.message);
         return done();
       }
       done();
     });
-  });
-*/
+  }); // end of describe containing Mocha hooks
+
   describe(`[GET] /api/bands`, () => {
-    console.log('in get describe with 200');
-    it('should get a list of all bands in the database', done => {
+    it('should return status 200 if successful', done => {
       chai
         .request(server)
         .get('/api/bands')
         .end((err, response) => {
           if (err) {
-            console.log('get', err.message);
             return done();
           }
           expect(response.status).to.equal(200);
@@ -85,9 +77,9 @@ describe('Bands', () => {
         });
     });
   });
-  /*
+
   describe(`[GET] /api/bands`, () => {
-    it('should return an array of bands', done => {
+    it('response body should be an array', done => {
       chai
         .request(server)
         .get('/api/bands')
@@ -102,12 +94,11 @@ describe('Bands', () => {
   });
 
   describe(`[GET] /api/bands`, () => {
-    it('should return properties _id, name, genre, tourStatus', done => {
+    it('response body should have properties: _id, name, genre, tourStatus', done => {
       chai
         .request(server)
         .get('/api/bands')
         .end((err, response) => {
-          // console.log("+++", response.body[0]._id);
           if (err) {
             return done(err);
           }
@@ -119,5 +110,4 @@ describe('Bands', () => {
         });
     });
   });
-  */
 });

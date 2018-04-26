@@ -2171,7 +2171,7 @@ Trace:
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
   Arguments: /d /s /c mocha tests/*.test.js
-  Directory: C:\Users\megan_000\LambdaSchool\Server-Testing-Mini
+  Directory: c:\Users\megan_000\LambdaSchool\Server-Testing-Mini
   Output:
   
       at ProcessTermError.MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
